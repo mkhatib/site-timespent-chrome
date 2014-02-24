@@ -14,10 +14,8 @@
     }
   ],
   "permissions": [
-    "webRequest",
     "tabs",
     "http://*/*",
-    "https://*/*",
-    "webRequestBlocking"
+    "https://*/*"
   ]
 }
