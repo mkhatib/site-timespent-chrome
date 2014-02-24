@@ -27,6 +27,17 @@ setInterval(function() {
     if (SITE_TO_TIME_MAP[site] % 10 === 0) {
       var data = {site: site, time: SITE_TO_TIME_MAP[site]};
       chrome.tabs.sendMessage(tabs[0].id, data, null);
+
+      var opt = {
+        type: "basic",
+        title: "Time Spent",
+        message: "You spent a total of: " + data.time + " seconds on " + data.site,
+        iconUrl: "icon.png"
+      }
+
+      chrome.notifications.create('spent-on-' + site, opt, function() {
+        console.log('notification created');
+      });
     }
   });
 }, 5000);
